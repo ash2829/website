@@ -1,0 +1,9 @@
+---
+title: Python
+author: Alexis Hernandez
+date: '2019-12-15'
+slug: python
+categories: []
+tags: []
+description: ''
+---

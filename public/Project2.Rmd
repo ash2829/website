@@ -15,10 +15,6 @@ data(stagec)
 
 ## Alexis Hernandez (ash2829)
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
 ### 0.
 
 *The dataset of interest is named `stagec` and contains data representing information on stage C prostate cancer in order to explore the prognostic values of flow cytometry. The dataset contains 146 observations (information for 146 patients) on 8 variables and was obtained from the `rpart` package. The variables for the dataset include pgtime, pgstat, age, eet, g2, grade, gleason, and ploidy. Pgtime is a numerical variable and comprises the time to progression or last follow-up in years. Pgstat is a categorical variable with two levels, progession observed or censored. Age is a numerical variable and comprises the ages of the patients in years. Eet is a categorical variable with two levels consisting of whether the patient recieved early endocrine therapy or not. G2 is a numerical variable and comprises the percent of cells in the G2 phase as found by flow cytometry. Grade is a categorical variable and comprises the grade of the tumor following the Farrow system. Gleason is a categorical variable and comprises the grade of the tumor following the Gleason system. Lastly, ploidy is a categorical variable describing the ploidy status of the tumor from flow cytometry.*

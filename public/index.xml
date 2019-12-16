@@ -6,10 +6,19 @@
     <description>Recent content on Alexis Hernandez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 02 Oct 2016 22:55:05 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python</title>
+      <link>/blog/python/</link>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/python/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Projects</title>
@@ -37,8 +46,7 @@ Project2.Rmd</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/project2/</guid>
-      <description>Alexis Hernandez (ash2829) This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
+      <description>Alexis Hernandez (ash2829) 0. The dataset of interest is named stagec and contains data representing information on stage C prostate cancer in order to explore the prognostic values of flow cytometry. The dataset contains 146 observations (information for 146 patients) on 8 variables and was obtained from the rpart package. The variables for the dataset include pgtime, pgstat, age, eet, g2, grade, gleason, and ploidy. Pgtime is a numerical variable and comprises the time to progression or last follow-up in years.</description>
     </item>
     
     <item>
