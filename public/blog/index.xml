@@ -17,7 +17,7 @@
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/python/</guid>
-      <description></description>
+      <description>library(reticulate) use_python(&amp;quot;/usr/local/bin/python3&amp;quot;) Sys.setenv(RETICULATE_PYTHON=&amp;quot;/usr/local/bin/python3&amp;quot;) #py_install(&amp;quot;pandas&amp;quot;) import pandas as pd faithful=pd.read_csv(&amp;quot;https://vincentarelbundock.github.io/Rdatasets/csv/datasets/faithful.csv&amp;quot;) faithful.max() ## Unnamed: 0 272.0 ## eruptions 5.1 ## waiting 96.0 ## dtype: float64 faithful.min() ## Unnamed: 0 1.0 ## eruptions 1.6 ## waiting 43.0 ## dtype: float64 print(&amp;#39;The minimum value on eruptions is&amp;#39;,faithful.eruptions.min()) ## The minimum value on eruptions is 1.6 print(&amp;#39;The minimum value on waiting is&amp;#39;,faithful.waiting.min()) ## The minimum value on waiting is 43 print(&amp;#39;The maximum value on eruptions is&amp;#39;,faithful.</description>
     </item>
     
   </channel>

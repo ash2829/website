@@ -1,14 +1,14 @@
 ---
 title: "Project 2"
 author: "Alexis Hernandez"
-date: "11/24/2019"
+date: "2019-12-16"
 output:
   html_document: default
   pdf_document: default
 ---
 
-```{r, echo=FALSE}
-knitr::opts_chunk$set(error = TRUE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 library(rpart)
 data(stagec)
 ```

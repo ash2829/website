@@ -6,10 +6,28 @@
     <description>Recent content on Alexis Hernandez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 15 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Project 1</title>
+      <link>/project1/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project1/</guid>
+      <description>Alexis Hernandez ash2829 0. Introduction The datasets I have chosen are named fifa_audience and drinks which contain data representing information on a FIFA audience sample and alcohol servings in different countries, respectively. The first dataset contains detailed data on how wide an audience the World Cup reached on television in different countries. The variables include the FIFA viewers country, the confederation of the country, the country’s share of the global population, the country’s share of the World Cup’s television audience, and the country’s GDP-weighted audience share.</description>
+    </item>
+    
+    <item>
+      <title>Project 2</title>
+      <link>/project2/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/project2/</guid>
+      <description>Alexis Hernandez (ash2829) 0. The dataset of interest is named stagec and contains data representing information on stage C prostate cancer in order to explore the prognostic values of flow cytometry. The dataset contains 146 observations (information for 146 patients) on 8 variables and was obtained from the rpart package. The variables for the dataset include pgtime, pgstat, age, eet, g2, grade, gleason, and ploidy. Pgtime is a numerical variable and comprises the time to progression or last follow-up in years.</description>
+    </item>
     
     <item>
       <title>Python</title>
@@ -17,7 +35,7 @@
       <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/python/</guid>
-      <description></description>
+      <description>library(reticulate) use_python(&amp;quot;/usr/local/bin/python3&amp;quot;) Sys.setenv(RETICULATE_PYTHON=&amp;quot;/usr/local/bin/python3&amp;quot;) #py_install(&amp;quot;pandas&amp;quot;) import pandas as pd faithful=pd.read_csv(&amp;quot;https://vincentarelbundock.github.io/Rdatasets/csv/datasets/faithful.csv&amp;quot;) faithful.max() ## Unnamed: 0 272.0 ## eruptions 5.1 ## waiting 96.0 ## dtype: float64 faithful.min() ## Unnamed: 0 1.0 ## eruptions 1.6 ## waiting 43.0 ## dtype: float64 print(&amp;#39;The minimum value on eruptions is&amp;#39;,faithful.eruptions.min()) ## The minimum value on eruptions is 1.6 print(&amp;#39;The minimum value on waiting is&amp;#39;,faithful.waiting.min()) ## The minimum value on waiting is 43 print(&amp;#39;The maximum value on eruptions is&amp;#39;,faithful.</description>
     </item>
     
     <item>
@@ -29,24 +47,6 @@
       <description>Projects Here are some projects I have been working on:
 Project1.Rmd
 Project2.Rmd</description>
-    </item>
-    
-    <item>
-      <title>Project 1</title>
-      <link>/project1/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/project1/</guid>
-      <description>Alexis Hernandez ash2829 0. Introduction The datasets I have chosen are named fifa_audience and drinks which contain data representing information on a FIFA audience sample and alcohol servings in different countries, respectively. The first dataset contains detailed data on how wide an audience the World Cup reached on television in different countries. The variables include the FIFA viewers country, the confederation of the country, the country’s share of the global population, the country’s share of the World Cup’s television audience, and the country’s GDP-weighted audience share.</description>
-    </item>
-    
-    <item>
-      <title>Project 2</title>
-      <link>/project2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/project2/</guid>
-      <description>Alexis Hernandez (ash2829) 0. The dataset of interest is named stagec and contains data representing information on stage C prostate cancer in order to explore the prognostic values of flow cytometry. The dataset contains 146 observations (information for 146 patients) on 8 variables and was obtained from the rpart package. The variables for the dataset include pgtime, pgstat, age, eet, g2, grade, gleason, and ploidy. Pgtime is a numerical variable and comprises the time to progression or last follow-up in years.</description>
     </item>
     
     <item>

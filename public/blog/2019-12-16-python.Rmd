@@ -7,3 +7,34 @@ categories: []
 tags: []
 description: ''
 ---
+
+<center>
+![](https://miro.medium.com/max/2000/0*DyMh6x1yk539SzjG){width=70%}
+</center>
+
+
+```{R}
+library(reticulate)
+use_python("/usr/local/bin/python3")
+Sys.setenv(RETICULATE_PYTHON="/usr/local/bin/python3")
+#py_install("pandas")
+```
+
+```{python}
+import pandas as pd
+faithful=pd.read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/datasets/faithful.csv")
+
+faithful.max()
+faithful.min()
+print('The minimum value on eruptions is',faithful.eruptions.min())
+print('The minimum value on waiting is',faithful.waiting.min())
+print('The maximum value on eruptions is',faithful.eruptions.max())
+print('The maximum value on waiting is',faithful.waiting.max())
+
+
+```
+
+<center>
+![](https://media.tacdn.com/media/attractions-splice-spp-674x446/07/26/3c/87.jpg){width=70%}
+</center>
+

@@ -10,4 +10,35 @@ description: ''
 
 
 
+<center>
+<img src="https://miro.medium.com/max/2000/0*DyMh6x1yk539SzjG" style="width:70.0%" />
+</center>
+<pre class="r"><code>library(reticulate)
+use_python(&quot;/usr/local/bin/python3&quot;)
+Sys.setenv(RETICULATE_PYTHON=&quot;/usr/local/bin/python3&quot;)
+#py_install(&quot;pandas&quot;)</code></pre>
+<pre class="python"><code>import pandas as pd
+faithful=pd.read_csv(&quot;https://vincentarelbundock.github.io/Rdatasets/csv/datasets/faithful.csv&quot;)
 
+faithful.max()</code></pre>
+<pre><code>## Unnamed: 0    272.0
+## eruptions       5.1
+## waiting        96.0
+## dtype: float64</code></pre>
+<pre class="python"><code>faithful.min()</code></pre>
+<pre><code>## Unnamed: 0     1.0
+## eruptions      1.6
+## waiting       43.0
+## dtype: float64</code></pre>
+<pre class="python"><code>print(&#39;The minimum value on eruptions is&#39;,faithful.eruptions.min())</code></pre>
+<pre><code>## The minimum value on eruptions is 1.6</code></pre>
+<pre class="python"><code>print(&#39;The minimum value on waiting is&#39;,faithful.waiting.min())</code></pre>
+<pre><code>## The minimum value on waiting is 43</code></pre>
+<pre class="python"><code>print(&#39;The maximum value on eruptions is&#39;,faithful.eruptions.max())</code></pre>
+<pre><code>## The maximum value on eruptions is 5.1</code></pre>
+<pre class="python"><code>print(&#39;The maximum value on waiting is&#39;,faithful.waiting.max())
+</code></pre>
+<pre><code>## The maximum value on waiting is 96</code></pre>
+<center>
+<img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/26/3c/87.jpg" style="width:70.0%" />
+</center>
