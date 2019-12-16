@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chris Turner</title>
+    <link>/</link>
+    <description>Recent content on Chris Turner</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 02 Oct 2016 22:55:05 -0400</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Projects</title>
+      <link>/projects/</link>
+      <pubDate>Sun, 02 Oct 2016 22:55:05 -0400</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>Projects Here are some projects I have been working on:
+Project1.Rmd
+Project2.Rmd</description>
+    </item>
+    
+    <item>
+      <title>Project 1</title>
+      <link>/project1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project1/</guid>
+      <description>Alexis Hernandez ash2829 0. Introduction The datasets I have chosen are named fifa_audience and drinks which contain data representing information on a FIFA audience sample and alcohol servings in different countries, respectively. The first dataset contains detailed data on how wide an audience the World Cup reached on television in different countries. The variables include the FIFA viewers country, the confederation of the country, the country’s share of the global population, the country’s share of the World Cup’s television audience, and the country’s GDP-weighted audience share.</description>
+    </item>
+    
+    <item>
+      <title>Project 2</title>
+      <link>/project2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/project2/</guid>
+      <description>Alexis Hernandez (ash2829) This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+When you click the Knit button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</description>
+    </item>
+    
+    <item>
+      <title>resume.Rmd</title>
+      <link>/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resume/</guid>
+      <description>EDUCATION
+The University of Texas at Austin, Austin, TX December/2019 Bachelor of Science in Biology Concentration in Biology; GPA &amp;gt;= 3.4 Certification in Pre-Health (18 hours)
+EXPERIENCE
+Kim’s Gym, Austin, TX March/2018 - Present Gymnastics coach
+-Coach young gymnasts by teaching them physical skills that simultaneously instill confidence and grace.  -Plan lessons for each group that I train according to their skill and competence level. -Develop stimulating relationships with gymnasts in order to gain their respect and trust.</description>
+    </item>
+    
+  </channel>
+</rss>

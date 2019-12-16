@@ -1,0 +1,99 @@
+---
+title: "Project 1"
+author: "Alexis Hernandez"
+date: "10/20/2019"
+output: 
+  html_document: default
+  pdf_document: default
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+library(fivethirtyeight) 
+library(ggplot2)
+data(fifa_audience)
+data(drinks)
+```
+
+## Alexis Hernandez ash2829
+
+### 0. Introduction
+
+*The datasets I have chosen are named `fifa_audience` and `drinks` which contain data representing information on a FIFA audience sample and alcohol servings in different countries, respectively. The first dataset contains detailed data on how wide an audience the World Cup reached on television in different countries. The variables include the FIFA viewers country, the confederation of the country, the country’s share of the global population, the country’s share of the World Cup’s television audience, and the country’s GDP-weighted audience share. The second dataset contains data on average alcohol consumption per capita for those age 15 and over in different countries and describes consumption by beverage type. The variables include the country, servings of beer, servings of spirits, servings of wine, and total liters of pure alcohol per person. These were both obtained from the `fivethirtyeight` package which I found particularly interesting because the datasets in this package have their own articles that discuss the data’s relevance in a real-world context. Furthermore, the datasets were interesting in themselves because not only is soccer the most popular sport in the world, but I am also a fan and support a few teams myself. Seeing as sports are typically associated with alcohol consumption, I figured it would be engaging to study their possible relationship based on country. With that, I expect there to be a positive relationship with FIFA viewers in wealthier countries and the average alcohol consumption per capita in those same countries.*
+
+### 1. Tidying: Rearranging Wide/Long
+
+```{R}
+library(tidyverse)
+untidy_fifa <- fifa_audience %>% pivot_wider(names_from = "country", values_from = "confederation")
+untidy_drinks <- drinks %>% pivot_wider(names_from = "country", values_from = "total_litres_of_pure_alcohol")
+tidy_fifa <- untidy_fifa %>% pivot_longer(4:194, names_to="country", values_to = "confederation") %>% na.omit()
+tidy_drinks <- untidy_drinks %>% pivot_longer(4:196, names_to = "country", values_to = "total_litres_of_pure_alcohol") %>% na.omit()
+```
+
+*The two datasets `fifa_audience` and `drinks` were already tidy since the variables had their own columns and the data was presented in a long format.  In order to demonstrate the use of the pivot_wider() and pivot_longer() functions, they were each made untidy and then tidy again to do so. The dataset `untidy-fifa` was created using pivot_wider() where the names came from the country variable and the values came from the confederation variable. This reshaped the data from long to wide as each country now had its own column and its values consisted of a corresponding confederation. The same function was applied to the ‘drinks’ dataset but here the names came from the country variable and the values came from the total_litres_of_pure_alcohol variable. The dataset was named `untidy_drinks` with each country having its own column and its values consisting of a corresponding liter of alcohol. The datasets were made tidy again using pivot_longer() where the column range was specified and names_to and values_to were used. This essentially did the reverse of the pivot_wider() function as the untidy datasets were reshaped from wide to long. For each untidy dataset, each country column went into a single column named country and the corresponding values went into their own columns as well. These were named confederation and total_litres_of_pure_alcohol, respectively. In order to have clean tidy data, the na.omit() function was also used to remove the NA’s from `tidy_fifa` and `tidy_drinks` which were generated from making the untidy datasets.*
+
+
+### 2. Joining/Merging 
+
+```{R}
+fifa_drinks <- left_join(fifa_audience, drinks)
+```
+
+*The datasets were joined using the left_join() function where all the rows from `fifa_audience` were kept and the rows with matches from `drinks` were added. This meant that they were joined by country. The rows in `fifa_audience` that did not have a match in `drinks` had NAs in the new columns. This meant that the countries that did not have a match now had NAs in the added columns from `drinks`. This join was used because it was necessary for all the countries in `fifa_audience` to be kept for the purpose of the study. The countries in `drinks` were needed to match them in order to give the study more context. The joined dataset was named `fifa_drinks`.*
+
+
+### 3. Wrangling
+
+```{R}
+fifa_drinks %>% filter(confederation == "CONMEBOL") %>% arrange(desc(gdp_weighted_share)) %>% select(country, gdp_weighted_share,tv_audience_share, total_litres_of_pure_alcohol) %>% mutate(dec_gdp = gdp_weighted_share/100, dec_tv_audience = tv_audience_share/100)
+
+fifa_drinks %>% group_by(confederation) %>% na.omit() %>% summarize(mean(total_litres_of_pure_alcohol), sd(total_litres_of_pure_alcohol), min(total_litres_of_pure_alcohol), max(total_litres_of_pure_alcohol), n())
+
+fifa_drinks %>% na.omit() %>% summarize(mean(beer_servings), sd(beer_servings), min(beer_servings), max(beer_servings), n())
+
+fifa_drinks %>% na.omit() %>% group_by(tv_audience_share) %>% summarize(mean_total=mean(total_litres_of_pure_alcohol), mean_gdp=mean(gdp_weighted_share)) %>% cor()
+```
+
+*The six core dpylr functions were used to manipulate and explore the dataset. First, the filter() function was used to choose the rows that had CONMEBOL as their confederation. The arrange() function was piped next to sort the gdp_weighted_share values from greatest to least using the desc() function. The select() function was piped next to choose the country, gdp_weighted_share, tv_audience_share, and total_litres_of_pure_alcohol variables. The mutate() function was piped next to create two new variables where the gdp_weighted_share and tv_audience_share variables were divided by 100 to turn their percentage values into decimals. These were called dec_gdp and dec_tv_audience, respectively. The output gave 10 rows because there were 10 countries in the CONMEBOL confederation, each with their corresponding values for GDP, FIFA tv audience, total liters of alcohol, and the decimal values for the GDP and tv audience percentages.*
+*Summary statistics were also created to display the mean, standard deviation, minimum, maximum, and count values of the total_litres_of_pure_alcohol variable. The group_by() function was used to create a subset of the data where confederation was the variable being grouped by. The summarize() function was piped after to find the mean, standard deviation (sd),  minimum (min), maximum (max), and count (n) values of total liters of alcohol for each confederation. The na.omit() function was also used to remove the NAs from the dataset before the calculations were performed. The output displayed the mentioned summary statistics for each confederation. Another summarize() function was used to find the mean, standard deviation, minimum, maximum, and count values of the beer_servings variable after removing NAs. According to the output, the mean beer servings was 107.47, the standard deviation was 101.65, the minimum was 0, the maximum was 376, and the count was 168 which corresponds to the total number of countries without NA values. In another code, group_by() was used to group by the tv_audience_share variable after the NAs were removed from the dataset. The summarize() function was piped after to find the mean of total_litres_of_pure_alcohol and the mean of gdp_weighted_shares. This was then piped into the cor() function to display the correlations between the summary statistics. According to the output, mean GDP and mean TV audience share had the highest correlation.*
+
+
+### 4. Visualizing
+
+```{R}
+fifa_drinks1 <- fifa_drinks %>% na.omit()
+ggplot(fifa_drinks1, aes(tv_audience_share, total_litres_of_pure_alcohol, color = confederation))+geom_point()+ggtitle("Relationship between FIFA TV audience share and total liters of alcohol per confederation")+xlab("Percentage of country's FIFA TV audience share")+ylab("Total liters of alcohol")
+
+fifa_drinks1 %>% mutate(total_alcohol_tertile=ntile(total_litres_of_pure_alcohol,3)) %>% ggplot(aes(x = total_alcohol_tertile, y = tv_audience_share, fill=confederation))+ geom_bar(stat="summary",fun.y="mean", position="dodge")+
+geom_errorbar(stat="summary",position="dodge")+ggtitle("Tertiles of total liters of alcohol by percentage of country's FIFA TV audience share per confederation")+xlab("Tertiles of total liters of alcohol")+ylab("Percentage of country's FIFA TV audience share")
+```
+
+*The plot named “Relationship between FIFA TV audience and total liters of alcohol per confederation” illustrates the relationship between the confederation, tv_audience_share, and total_litres_of_pure_alcohol variables. According to the plot, most countries in the UEFA confederation consume the most alcohol and lie between 0 and 3 for TV audience share. Most of the countries in the CONCACAF, CONMEBOL, and OFC confederations drink an intermediate amount of alcohol and lie between 0 and 4 for TV audience share. Most of the countries in the CAF and AFC confederations drink the least amount of alcohol and lie mainly between 0 and 1 for TV audience share. There are a few countries in each confederation that make up a higher TV audience share than the majority of the countries in their confederations. There is one country in the AFC confederation that acts as an extreme outlier in the plot because its TV audience share lies just under 15. The next highest country for tv audience share is in the CONMEBOL confederation and lies at about 7 which is a big difference from the outlier. Excluding the outlier, the countries that have a higher tv audience share drink an intermediate amount of alcohol and the countries behind them range between low and high for total amount of alcohol consumed.*
+*The bar chart named “Tertiles of total liters of alcohol by percentage of country's FIFA TV audience share per confederation” maps the total_alcohol_tertile, tv_audience_share, and confederation variables to display how spread the data are around the mean value, the reliability of the mean value, and the likelihood of there being a significant difference between the variables. A smaller standard error bar indicates a low spread meaning the data clumps around the mean, and a larger standard error bar indicates a larger spread meaning the data varies from the mean. According to the bar chart, the AFC confederation in the second and third tertiles for total liters of alcohol has the largest spread meaning the data varies from the mean for TV audience share. In the first tertile, the CONMEBOL confederation has the largest spread. For the first and second tertiles, the CAF and OFC confederations have the lowest spreads meaning the data does not vary from the mean for TV audience share. In the third tertile, the OFC and CONCACAF confederations have the lowest spreads. The reliability of the mean value can also be indicated by the standard error bars with a smaller bar meaning the mean is more reliable and a larger bar meaning the mean is less reliable. For instance in the third tertile, the CONCAFAC and OFC confederation means are more reliable than the AFC and CONMEBOL means because they have shorter bars. In the first and second tertiles, the CAF and OFC confederations have shorter bars indicating that their means are also more reliable. Lastly, when the bars overlap the difference between the variables is not statistically significant. In contrast, when the bars do not overlap the difference may be significant. For instance in the third tertile, the difference between the total liters of alcohol and TV audience share is not significant for the AFC and CONMEBOL confederations. However, in the second tertile the difference is significant for the CAF and CONCACAF confederations.*
+
+
+### 5. Dimensionality Reduction 
+
+```{R}
+fifa_nums <- fifa_drinks %>% select_if(is.numeric)%>%mutate_all(function(x)log(x+1)) %>% scale %>% na.omit()
+fifa_pca<-princomp(fifa_nums)
+names(fifa_pca)
+summary(fifa_pca, loadings=T)
+eigval<-fifa_pca$sdev^2
+varprop=round(eigval/sum(eigval),2)
+ggplot()+geom_bar(aes(y=varprop,x=1:7),stat="identity")+xlab("")+geom_path(aes(y=varprop,x=1:7))+ geom_text(aes(x=1:7,y=varprop,label=round(varprop,2)),vjust=1,col="white",size=5)+ scale_y_continuous(breaks=seq(0,.6,.2),labels = scales::percent)+ scale_x_continuous(breaks=1:10)
+round(cumsum(eigval)/sum(eigval),2)
+eigval
+summary(fifa_pca, loadings=T)
+eigen(cor(fifa_nums))
+pca_df<-fifa_drinks%>%na.omit%>%mutate(PC1=fifa_pca$scores[,1],PC2=fifa_pca$scores[,2])
+pca_df%>%
+ggplot(aes(PC1,PC2,color=confederation))+geom_point()
+```
+
+*A principal component analysis (PCA) was performed in in order to convert correlated variables into uncorrelated variables or principal components. First, the dataset `fifa_nums` was created using the select.if() function to choose only the numeric variables from the original dataset. The values for each variable were scaled and the NAs were also removed. A principal component analysis was performed on the scaled numeric data using princomp() to create `fifa_pca`. The results in the new dataset were summarized with loadings to give the summary statistics of standard deviation, proportion of variance, and cumulative proportion for the components. The output displayed the correlation between the numeric variables in each component. In order to decide which principal components (PCs) to keep, the proportion of variance explained by each PC was plotted in order to do so. The eigenvalues were calculated by squaring the standard deviations which were needed to determine the proportion of variance explained by each PC (varprop). PC1 and PC2 were kept because they were both before the elbow on the plot, their cumulative proportion of variance was less than 80%, and their eiganvalues were greater than 1.  In order to interpret these two components, the loadings and eigenvector part of the summary statistics was analyzed. In PC1, the loadings had similar signs and magnitude and indicated that the countries who scored higher (less negative) on their tv audience and weighted GDP shares scored lower (more negative) on the servings of different types of alcoholic drinks per person and even lower on the total liters of alcohol consumed per person. Since all the scores were negative, the higher a country scored on PC1, the stronger overall. In PC2, countries who scored low on their global population, TV audience, and weighted GDP shares scored high on the servings of different types of alcoholic drinks per person and total liters of alcohol consumed per person. Lastly, the scores were plotted using ggplot() to display the data with respect to PC1 and PC2. The relationship between confederation and the numeric variables in the first two PCs was illustrated in the plot. According to the plot, most countries in any of the six confederations scored relatively high on PC2 however, they each range on their scores on PC1. For instance, most countries in the AFC and CAF confederations scored high on PC1, most countries in the OFC, CONCACAF, and CONMEBOL confederations scored in the middle range on PC1, and most countries in the UEFA confederations scored low on PC1.*
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

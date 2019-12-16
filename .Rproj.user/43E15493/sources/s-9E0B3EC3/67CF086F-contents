@@ -1,0 +1,22 @@
+install.packages("blogdown")
+blogdown::install_hugo()
+blogdown::new_site(theme="nurlansu/hugo-sustain", theme_example = T)
+blogdown::serve_site()
+
+
+
+
+sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+  install.packages("xml2", configure.vars='INCLUDE_DIR=/usr/local/opt/libxml2/include/libxml2 LIB_DIR=/usr/local/opt/libxml2/lib/')
+brew install openmpi --build-from-sources
+brew install libxml2
+at <a href="http://twitter.com/{{ .Site.Params.Social.Twitter }}">@{{ .Site.Params.Social.Twitter }}</a> or
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+install.packages(libxml2-dev (Debian, Ubuntu, etc))
+install.packages(libxml2-devel (Fedora, CentOS, RHEL))
+install.packages(libxml2_dev (Solaris))
+install.packages(libxml2)

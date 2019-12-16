@@ -1,0 +1,67 @@
+---
+title: "resume.Rmd"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*EDUCATION*
+	
+*The University of Texas at Austin, Austin, TX      			          			 December/2019*
+*Bachelor of Science in Biology*
+*Concentration in Biology; GPA >= 3.4*
+*Certification in Pre-Health (18 hours)*
+
+*EXPERIENCE*
+
+*Kim's Gym, Austin, TX  				     	                  			      March/2018 - Present*
+*Gymnastics coach*											
+*-Coach young gymnasts by teaching them physical skills that simultaneously instill confidence and grace. *
+*-Plan lessons for each group that I train according to their skill and competence level.*
+*-Develop stimulating relationships with gymnasts in order to gain their respect and trust.*
+*-Volunteer as a special needs gymnastics coach once a week.*
+
+*JXI2, El Paso, TX									        	                  June/2018- December/2018*
+*Personal Assistant/Temp Intern*
+*-Organized and reviewed packages for partners in business as well as to customers.*
+*-Compiled all types of paperwork including invoices, receipts, mail, etc.*
+*-Calculated all inventories.*
+
+*Preceptorship Program, Austin, TX							                   October/2018- Present*
+*Shadower*
+*-Shadow Dr. Alejandro Esquivel weekly.*
+*-Observe surgeries, patient consultations, patient care, etc. *
+
+*ACTIVITIES, VOLUNTEERING, & LEADERSHIP*
+
+*Hispanic Health Professions Organization, Austin, TX								January/2017- Present*
+*Active member*
+*-Volunteer at nursing home once a week. Also participate in outside volunteer events including toy and food drives.*
+*-Participate in on-campus fundraisers.*
+*-Attend social events featuring professional healthcare providers.*
+
+*Dell Children’s Medical Center, Austin, TX*				        
+*May/2019- Present*
+*Student volunteer*
+*-Volunteer as a patient rounder in assigned hospital unit once a week. Also volunteer at special events taking place at the hospital.* 
+
+*El Paso Social Network in Austin, Austin, TX								           July/2016- Present*
+*Member*
+*-Attend a variety of social events including ceremonies and community development gatherings.*
+*-Participant in mentor program.*
+
+*SKILLS*
+
+*Technical/Computer Skills:  Proficient in Microsoft Word, Powerpoint and Excel.* 
+*Languages: Advanced English. Basic Spanish.*
+*Certifications: CPR certified, certified in Microsoft office applications.*
+
+*HONORS AND AWARDS*
+
+*-Two time coach of the month*
+
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
