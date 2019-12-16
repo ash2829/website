@@ -7,8 +7,8 @@ output:
   pdf_document: default
 ---
 
-```{r, echo=FALSE}
-knitr::opts_chunk$set(error = TRUE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 library(fivethirtyeight) 
 library(ggplot2)
 data(fifa_audience)
